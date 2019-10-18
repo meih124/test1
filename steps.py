@@ -1,10 +1,4 @@
-from selenium import webdriver
 from lettuce import step, world
-
-# @before.each_feature
-world.driver = webdriver.Chrome()
-world.driver.maximize_window()
-world.driver.get('http://www.novaworks.org')
 
 
 @step('Go to link "([^"]*)"')
