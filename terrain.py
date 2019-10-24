@@ -6,4 +6,4 @@ from lettuce import *
 def open_browser():
     world.driver = webdriver.Chrome()
     world.driver.maximize_window()
-    world.driver.get('http://www.novaworks.org')
+    world.driver.get('http://www.google.com')
