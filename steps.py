@@ -27,6 +27,5 @@ def click_button(step, button_text):
 @step('Assert text displayed is "([^"]*)"')
 def assert_text(step, displayed_text):
     element = world.driver.find_element_by_tag_name('h1')
-    assert element.text == displayed_text
-    # if element.text != displayed_text:
-    #     raise ValueError("Displayed text should be '%s''" %displayed_text)
+    assert element.text == displayed_text, ("Displayed text unexpectedly shows '%s' instead of '%s'" %(element.text, displayed_text))
+

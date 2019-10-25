@@ -9,4 +9,4 @@ Feature: NOVA Job Center
 
   Scenario: Assert text of h1 title
     Given Go to URL "http://www.example.com"
-    Then Assert text displayed is "Example Domain"
+    Then Assert text displayed is "Example Domains"
