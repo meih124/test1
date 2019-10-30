@@ -7,6 +7,5 @@ Feature: NOVA Job Center
     Then Locate "keywords" field and enter "automation"
     Then Click button "Find Jobs"
 
-  Scenario: Assert text of h1 title
-    Given Go to URL "http://www.example.com"
-    Then Assert text displayed is "Example Domains"
+
+
