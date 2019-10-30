@@ -43,3 +43,15 @@ def assert_url(step, displayed_text):
     assert world.driver.current_url == displayed_text, ("Displayed text unexpectedly shows '%s' instead of '%s'" %(current_url, displayed_text))
 
 
+@step('Auth directly through URL')
+def auth_thru_url(step):
+    world.driver.get('http://admin:admin@the-internet.herokuapp.com/basic_auth')
+
+
+@step('Type "([^"]*)" in Iframe')
+def input_text_iframe(step, input_text):
+    world.driver.switch_to.frame('mce_0_ifr')
+    editor = world.driver.find_element_by_id('tinymce')
+    editor.clear()
+    editor.send_keys(input_text)
+
