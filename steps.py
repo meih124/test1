@@ -1,4 +1,5 @@
 from lettuce import step, world
+from selenium.common.exceptions import NoSuchElementException
 import verify
 from verify import expect
 
@@ -55,3 +56,20 @@ def input_text_iframe(step, input_text):
     editor.clear()
     editor.send_keys(input_text)
 
+
+@step('Click specific edit button')
+def click_edit_button(step):
+    button = world.driver.find_element_by_xpath("//td[text()='Phaedrum2']/following-sibling::td/a[text()='edit']")
+    button.click()
+
+
+@step('Click appearing button "([^"]*)"')
+def click_visible_button(step, button_text):
+    while True:
+        try:
+            world.driver.find_element_by_xpath("//a[text()='%s']" %button_text)
+        except NoSuchElementException:
+            world.driver.refresh()
+        else:
+            world.driver.find_element_by_xpath("//a[text()='%s']" % button_text).click()
+            break
